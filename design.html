@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+
+<head>
+    <!-- Made by Krysten Loi on November 25, 2025 -->
+    <title>Krysten's Portfolio - Home</title>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=TASA+Explorer:wght@400..800&display=swap"
+        rel="stylesheet">
+
+    <!-- p5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+
+    <!-- Matter.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+
+    <style>
+        /*-- Layout Container --*/
+        html {
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        body {
+            width: 1200px;
+            margin: 0 auto;
+            background-color: #060608;
+            font-family: "TASA Explorer", sans-serif;
+            font-size: 25px;
+        }
+
+        p,
+        ul,
+        li,
+        a {
+            color: #F3F4F7;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        h1 {
+            color: #F3F4F7;
+            font-family: "Momo Trust Display", sans-serif;
+            text-transform: uppercase;
+            font-size: 70px;
+        }
+
+        h2 {
+            color: #FF6564;
+            font-family: "TASA Explorer", sans-serif;
+            text-transform: uppercase;
+            font-size: 45px;
+            letter-spacing: 4px;
+
+        }
+
+        h3 {
+            color: #F3F4F7;
+            font-family: "Momo Trust Display", sans-serif;
+            text-transform: uppercase;
+        }
+
+        /*-- Logo --*/
+        .logo {
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        /*-- Navigation --*/
+        .spacer {
+            background-color: #060608;
+            width: 500px;
+        }
+
+        .nav {
+            font-optical-sizing: auto;
+            list-style: none;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            margin-top: 100px;
+            margin-left: 60px;
+            margin-right: 60px;
+            margin-bottom: 30px;
+        }
+
+        /* -- Navigation Text & Line Animation -- */
+        /*-- AI-ASSISTED CODE: Used Gemini to create a swipe hover animation in the navigation menu, that changes color from left-to-right on the text and line. --*/
+        .nav a {
+            position: relative;
+            padding-bottom: 5px;
+            /* spacing between text and line*/
+
+            /* Set the background to a gradient that includes Base colour (#F3F4F7), Hover colour (#FF6564) */
+            background-image: linear-gradient(to right,
+                    #FF6564 0%,
+                    #FF6564 50%,
+                    #F3F4F7 50%,
+                    #F3F4F7 100%);
+
+            /* Set the size to double the width, so both colors are side-by-side */
+            background-size: 200% 100%;
+            background-repeat: no-repeat;
+
+            /* Start position: show the base color (#F3F4F7) */
+            background-position: 100% 0;
+            /* this shifts the background so the #F3F4F7 section is visible */
+
+            /* Keep the text transparent */
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            /* Animate the background position instead of the size */
+            transition: background-position 0.3s ease-out;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            /* line starts invisible */
+            height: 1.5px;
+            background-color: #FF6564;
+            border-radius: 2px;
+
+            /* Animate the line width for the swipe effect */
+            transition: width 0.3s ease-out;
+        }
+
+        .nav a:hover {
+            /* When hovering, shift the background position to show the hover color (#FF6564) */
+            background-position: 0% 0;
+        }
+
+        .nav a:hover::after {
+            /* Expands the line underneath */
+            width: 100%;
+        }
+
+        /*-- AI-ASSISTED CODE: Used Gemini to colour the current page in the navigation menu. --*/
+        /* Active Page Highlight */
+        .nav a.active {
+            /* show the orange gradient */
+            background-position: 0% 0;
+        }
+        
+        .nav a.active::after {
+            /* show full underline */
+            width: 100%;
+        }
+
+        /*-- Projects --*/
+        .projects {
+            margin-left: 100px;
+            margin-top: 80px;
+            margin-bottom: 90px;
+        }
+
+        /* --- Project Description --- */
+        .big-description {
+            margin-bottom: 60px;
+            background-color: #111318;
+            padding: 60px;
+            padding-bottom: 25px;
+            border-radius: 20px;
+            font-size: 30px;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .big-description h2 {
+            margin: 0px;
+        }
+
+        .big-description h3 {
+            margin-top: 30px;
+            font-family: "TASA Explorer", sans-serif;
+            line-height: 50px;
+        }
+
+        .big-description p {
+            margin-top: 30px;
+            line-height: 50px;
+        }
+
+        .small-description {
+            display: flex;
+        }
+
+        .small-description h2 {
+            margin: 0px;
+        }
+
+        .small-description p {
+            margin-top: 30px;
+            line-height: 50px;
+        }
+
+        /* --- GBDA 101 Magazine --- */
+        /*-- AI-ASSISTED CODE: Used Gemini to create a swipe through carousel that displays my magazing project--*/
+        .carousel {
+            margin-bottom: 130px;
+            overflow-x: auto;
+            /* allow horizontal scrolling */
+            scroll-snap-type: x mandatory;
+            /* snap to each image on scroll */
+        }
+
+        .track {
+            display: flex;
+            /* line images in a row */
+            gap: 12px;
+        }
+
+        .track img {
+            height: 514px;
+            width: auto;
+            /* width adjusts proportionally */
+            object-fit: cover;
+            /* ensures image fills the height nicely */
+            border-radius: 15px;
+            scroll-snap-align: center;
+            /* snap each image to the center */
+        }
+
+        /* --- Solus Together --- */
+        .st-text {
+            margin-right: 60px;
+            margin-bottom: 130px;
+            background-color: #111318;
+            padding-top: 60px;
+            padding-bottom: 25px;
+            padding-left: 75px;
+            padding-right: 75px;
+            border-radius: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .solus-together {
+            width: 370px;
+            height: 100%;
+            border-radius: 15px;
+        }
+
+        /* --- My World --- */
+        .mw-text {
+            margin-left: 60px;
+            margin-bottom: 130px;
+            background-color: #111318;
+            padding-top: 60px;
+            padding-bottom: 25px;
+            padding-left: 60px;
+            padding-right: 60px;
+            border-radius: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .my-world {
+            width: 342px;
+            height: 100%;
+            border-radius: 15px;
+        }
+
+        /* --- Javascript --- */
+        .game {
+            width: 1100px;
+            display: grid;
+            grid-template-columns: 54.2% 46.8%;
+            column-gap: 4.7%;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .game-prj {
+            position: relative;
+        }
+
+        .game-img {
+            height: 360px;
+            border-radius: 15px;
+            /* hover zoom animation */
+            transition: transform 0.4s ease;
+        }
+
+        .game-prj p {
+            margin-top: 20px;
+            margin-bottom: 80px;
+            background-color: #FF6564;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-radius: 100px;
+            text-align: center;
+        }
+
+        .etb-text {
+            margin-left: 105px;
+            margin-right: 105px;
+        }
+
+        .dp-text {
+            margin-left: 120px;
+            margin-right: 120px;
+        }
+
+        /*-- AI-ASSISTED CODE: Used Gemini to create a hover effect that zooms the thumbnail, darkens it, and reveals a play button. --*/
+        /* Overlay that darkens on hover */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150%;
+            height: 100%;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0);
+            /* starts transparent */
+            transition: background 0.3s ease, transform 0.4s ease;
+            pointer-events: none;
+        }
+
+        /* When hovering over a specific thumbnail, it darkens the overlay */
+        .game-prj:hover .overlay {
+            background: rgba(0, 0, 0, 0.45);
+            transform: scale(1.06);
+            /* same zoom as the image */
+            transform-origin: center center;
+        }
+
+        /* Thumbnail zooms on hover */
+        .game-prj:hover .game-img {
+            transform: scale(1.06);
+        }
+
+        /* Play button overlay */
+        .game-btn {
+            padding: 10px 20px;
+            color: #FF6564;
+            background-color: #F3F4F7;
+            border-radius: 30px;
+            font-size: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: absolute;
+            /* center vertically */
+            top: 39%;
+            /* center horizontally */
+            left: 39%;
+            /* hides play button until hover */
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            /* orders the button to be above the overlay and thumbnail */
+            z-index: 3;
+        }
+
+        /* Show button on hover */
+        .game-prj:hover .game-btn {
+            opacity: 1;
+        }
+
+        .animations {
+            width: 1100px;
+            display: grid;
+            grid-template-columns: 34.5% 45.5%;
+            column-gap: 4.7%;
+            margin-bottom: 120px;
+            margin-left: 140px;
+            margin-right: 100px;
+        }
+
+        .animation-project {
+            text-align: center;
+        }
+
+        .animation-img {
+            height: 500px;
+            border-radius: 15px;
+        }
+
+        .animation-project p {
+            margin-top: 20px;
+            background-color: #FF6564;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-radius: 100px;
+        }
+
+        .squid-game-text {
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+        .space-text {
+            margin-left: 130px;
+            margin-right: 130px;
+        }
+
+        /* --- Footer --- */
+        .footer-container {
+            margin: 0 auto;
+            padding: 50px 60px 50px;
+            background-color: #1E222D;
+            color: #F3F4F7;
+            border-radius: 20px 20px 0px 0px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-branding p {
+            font-size: 25px;
+            line-height: 45px;
+        }
+
+        .footer-contact h3 {
+            text-align: right;
+        }
+
+        .footer-contact a {
+            display: block;
+            font-size: 25px;
+            line-height: 45px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <p class="logo">Krysten Loi</p>
+        </li>
+        <div class="spacer"></div>
+        <li><a href="index.html">home</a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="design.html" class="active">design</a></li>
+        <li><a href="media.html">media</a></li>
+    </ul>
+
+    <div class="projects">
+        <h1>Design Projects</h1>
+    </div>
+
+    <div class="big-description" id="magazine-project">
+        <h2>Showcase Magazine, 2024</h2>
+        <p>My design journey in GBDA 101.<br> Sometimes, we don't realize how much meaning is packed into something as
+            simple as a logo or icon.<br> It's more than just a design—it's a story waiting to be told.</p>
+        <p>Created using InDesign, Illustrator, & Photoshop</p>
+    </div>
+
+    <div class="carousel">
+        <div class="track">
+            <img src="images/mag-front-cover.jpg" alt="Magazine Front Cover, 2024">
+            <img src="images/mag-pg2-3.jpg" alt="Magazine PG.2-3, 2024">
+            <img src="images/mag-pg4-5.jpg" alt="Magazine PG.4-5, 2024">
+            <img src="images/mag-pg6-7.jpg" alt="Magazine PG.6-7, 2024">
+            <img src="images/mag-back-cover.jpg" alt="Magazine Back Cover, 2024">
+        </div>
+    </div>
+
+    <div class="small-description">
+        <div class="st-text">
+            <h2>Solus together, 2021</h2>
+            <p>Expression of my life during COVID-19.<br> In the space between isolation and the grounding influence of
+                home, family, and culture, a steady sort of stability begins to grow—even in challenging times.</p>
+            <p>Created using Illustrator</p>
+        </div>
+        <img class="solus-together" src="images/solus-together.jpg" alt="Solus Together, 2021">
+    </div>
+
+    <div class="small-description">
+        <img class="my-world" src="images/my-world.jpg" alt="My World, 2024">
+        <div class="mw-text">
+            <h2>My World, 2024</h2>
+            <p>Personal identity poster.<br> A blend of cityscape photography and glowing hand-drawn lines creates a
+                map-like world where imagination takes shape and structure, light, and fantasy intertwine.</p>
+            <p>Created using Illustrator</p>
+        </div>
+    </div>
+
+    <div class="big-description">
+        <h2>Games & Animations</h2>
+        <h3>Coded with Javascript</h3>
+    </div>
+
+    <div class="game">
+        <div class="game-prj">
+            <img class="game-img" src="images/eggscape-the-belt.jpg" alt="Eggscape the Belt Game, 2024">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/dk_hYr84CKo" target="_blank" class="game-btn">▶ Play</a>
+        </div>
+        <div class="game-prj">
+            <img class="game-img" src="images/dux-paint.jpg" alt="Dux Paint Game, 2025">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/QzayDdVs72Q" target="_blank" class="game-btn">▶ Play</a>
+        </div>
+        <div class="game-prj">
+            <p class="etb-text">Eggscape the Belt, 2024</p>
+        </div>
+        <div class="game-prj">
+            <p class="dp-text">Dux Paint, 2025</p>
+        </div>
+    </div>
+
+    <div class="animations">
+        <div class="animation-project">
+            <img class="animation-img" src="images/squid-game.jpg" alt="Squid Game Scene, 2025">
+            <p class="squid-game-text">Squid Game, 2025</p>
+        </div>
+        <div class="animation-project">
+            <img class="animation-img" src="images/space.jpg" alt="Space Scene, 2025">
+            <p class="space-text">Space, 2025</p>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <div class="footer-branding">
+            <h3>Krysten Loi</h3>
+            <p>A Global Business and Digital Arts<br>
+                student at the University of Waterloo.</p>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contact</h3>
+            <a href="mailto:k2loi@uwaterloo.ca">k2loi@uwaterloo.ca</a>
+            <a href="https://www.linkedin.com/in/krysten-loi/" target="_blank">linkedin.com/in/krysten-loi</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+
+<head>
+    <!-- Made by Krysten Loi on November 25, 2025 -->
+    <title>Krysten's Portfolio - Home</title>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=TASA+Explorer:wght@400..800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /*-- Layout Container --*/
+        html {
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        body {
+            width: 1200px;
+            margin: 0 auto;
+            background-color: #060608;
+            font-family: "TASA Explorer", sans-serif;
+            font-size: 25px;
+        }
+
+        p,
+        ul,
+        li,
+        a {
+            color: #F3F4F7;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        h1 {
+            color: #F3F4F7;
+            font-family: "Momo Trust Display", sans-serif;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: #FF6564;
+            font-family: "Momo Trust Display", sans-serif;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            color: #F3F4F7;
+            font-family: "Momo Trust Display", sans-serif;
+            text-transform: uppercase;
+        }
+
+        /*-- Logo --*/
+        .logo {
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        /*-- Navigation --*/
+        .spacer {
+            background-color: #060608;
+            width: 500px;
+        }
+
+        .nav {
+            font-optical-sizing: auto;
+            list-style: none;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            margin-top: 100px;
+            margin-left: 60px;
+            margin-right: 60px;
+            margin-bottom: 30px;
+        }
+
+        /* -- Navigation Text & Line Animation -- */
+        /*-- AI-ASSISTED CODE: Used Gemini to create a swipe hover animation in the navigation menu, that changes color from left-to-right on the text and line. --*/
+        .nav a {
+            position: relative;
+            padding-bottom: 5px;
+            /* spacing between text and line*/
+
+            /* Set the background to a gradient that includes Base colour (#F3F4F7), Hover colour (#FF6564) */
+            background-image: linear-gradient(to right,
+                    #FF6564 0%,
+                    #FF6564 50%,
+                    #F3F4F7 50%,
+                    #F3F4F7 100%);
+
+            /* Set the size to double the width, so both colors are side-by-side */
+            background-size: 200% 100%;
+            background-repeat: no-repeat;
+
+            /* Start position: show the base color (#F3F4F7) */
+            background-position: 100% 0;
+            /* this shifts the background so the #F3F4F7 section is visible */
+
+            /* Keep the text transparent */
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            /* Animate the background position instead of the size */
+            transition: background-position 0.3s ease-out;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            /* line starts invisible */
+            height: 1.5px;
+            background-color: #FF6564;
+            border-radius: 2px;
+
+            /* Animate the line width for the swipe effect */
+            transition: width 0.3s ease-out;
+        }
+
+        .nav a:hover {
+            /* When hovering, shift the background position to show the hover color (#FF6564) */
+            background-position: 0% 0;
+        }
+
+        .nav a:hover::after {
+            /* Expands the line underneath */
+            width: 100%;
+        }
+
+        /*-- AI-ASSISTED CODE: Used Gemini to colour the current page in the navigation menu. --*/
+        /* Active Page Highlight */
+        .nav a.active {
+            /* show the orange gradient */
+            background-position: 0% 0;
+        }
+        
+        .nav a.active::after {
+            /* show full underline */
+            width: 100%;
+        }
+
+        /*-- Hero Content --*/
+        .hero {
+            width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-img {
+            width: 100%;
+            display: block;
+            border-radius: 20px;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 25%;
+            left: 8%;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        /*-- Bio --*/
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+            margin-top: 100px;
+            font-size: 30px;
+            letter-spacing: 2px;
+            line-height: 40px;
+        }
+
+        /*-- Featured Work --*/
+        .featured {
+            width: 1100px;
+            margin: 50px auto;
+            margin-bottom: 65px;
+            display: grid;
+            grid-template-columns: 60% 40%;
+            background-color: #111318;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .img-group {
+            display: flex;
+            gap: 30px;
+        }
+
+        .design-img {
+            height: 350px;
+        }
+
+        .media-img {
+            height: 323px;
+        }
+
+        .grid-item {
+            padding: 70px;
+        }
+
+        .grid-item p {
+            border-left: #FF6564 solid 2px;
+            padding-left: 40px;
+            padding-bottom: 15px;
+            line-height: 40px;
+        }
+
+        .magazine-text {
+            margin-top: 10px;
+        }
+
+        .documentary-text {
+            margin-top: 58px;
+        }
+
+        .design-project-btn {
+            margin-top: 475px;
+            margin-left: 755px;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 17px;
+            color: #FF6564;
+            background-color: #F3F4F7;
+            border-radius: 30px;
+            font-size: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: absolute;
+        }
+
+        .media-project-btn {
+            margin-top: 435px;
+            margin-left: 755px;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 17px;
+            color: #FF6564;
+            background-color: #F3F4F7;
+            border-radius: 30px;
+            font-size: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: absolute;
+
+        }
+
+        /*-- AI-ASSISTED CODE: Used Gemini to create a colour change animation when hovering over the buttons. --*/
+        .design-project-btn:hover,
+        .media-project-btn:hover {
+            background-color: #F3F4F7;
+            color: #1E222D;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .additional-btn:hover {
+            background-color: #1E222D;
+            color: #F3F4F7;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .additional-work {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .additional-btn {
+            margin-top: 70px;
+            margin-bottom: 115px;
+            padding: 15px 20px 15px 20px;
+            color: #F3F4F7;
+            background-color: #FF6564;
+            border-radius: 30px;
+            font-size: 27px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* --- Skills & Tools --- */
+        .skills-tools {
+            margin-bottom: 130px;
+            border-top: #F3F4F7 solid 2px;
+            border-bottom: #F3F4F7 solid 2px;
+            padding-top: 75px;
+            padding-bottom: 15px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .assets-text {
+            margin-bottom: 90px;
+            text-transform: uppercase;
+        }
+
+
+        /* --- Footer --- */
+        .footer-container {
+            margin: 0 auto;
+            padding: 50px 60px 50px;
+            background-color: #1E222D;
+            color: #F3F4F7;
+            border-radius: 20px 20px 0px 0px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-branding p {
+            font-size: 25px;
+            line-height: 45px;
+        }
+
+        .footer-contact h3 {
+            text-align: right;
+        }
+
+        .footer-contact a {
+            display: block;
+            font-size: 25px;
+            line-height: 45px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <p class="logo">Krysten Loi</p>
+        </li>
+        <div class="spacer"></div>
+        <li><a href="index.html" class="active">home</a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="design.html">design</a></li>
+        <li><a href="media.html">media</a></li>
+    </ul>
+
+    <div class="hero">
+        <img class="hero-img" src="images/hero-img.jpg" alt="Home Banner">
+        <div class="hero-text">
+            <h1>Creating the next<br>
+                culture of design</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Hey there,</h2>
+        <p>I'm Krysten — a Global Business & Digital Arts student<br>
+            exploring digital design, branding & creative media.</p>
+    </div>
+    <div class="container">
+        <h2>Check this out!</h2>
+        <p>I bring ideas to life through video production, audio storytelling, graphic design, and bold branding that's
+            built to inspire and leave a lasting impact.</p>
+    </div>
+
+    <div class="featured">
+        <div class="grid-item">
+            <div class="img-group">
+                <img class="design-img" src="images/mag-front-cover.jpg" alt="First-Year Design Magazine, Front Cover">
+                <img class="design-img" src="images/mag-back-cover.jpg" alt="First-Year Design Magazine, Back Cover">
+            </div>
+        </div>
+        <div class="grid-item">
+            <p class="magazine-text">A print-style showcase of my first-year work that captures the projects, ideas, and
+                design choices that
+                shaped my early journey in GBDA.</p>
+        </div>
+        <a href="design.html#magazine-project" class="design-project-btn">View Project →</a>
+    </div>
+
+    <div class="featured">
+        <div class="grid-item">
+            <img class="media-img" src="images/bball-doc-thumbnail.jpg"
+                alt="Second-Year Documentary, Waterloo Women's Basketball Team">
+        </div>
+        <div class="grid-item">
+            <p class="documentary-text">A mini documentary capturing the drive of the Waterloo Women's Basketball team.
+            </p>
+        </div>
+        <a href="media.html#basketball-project" class="media-project-btn">View Project →</a>
+    </div>
+
+    <div class="additional-work">
+        <a href="design.html" class="additional-btn">Additional Designs</a>
+        <a href="media.html" class="additional-btn">Additional Media</a>
+    </div>
+
+    <div class="skills-tools">
+        <h2>Skills</h2>
+        <div class="assets-text">
+            <p>Video Editing • Graphic Design • Branding</p>
+            <p>Digital Marketing • Javascript • HTML • CSS</p>
+        </div>
+        <h2>Tools</h2>
+        <div class="assets-text">
+            <p>Figma • Illustrator • Photoshop • InDesign • After Effects</p>
+            <p>Premiere Pro • Audition • Da Vinci Resolve • Logic Pro</p>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <div class="footer-branding">
+            <h3>Krysten Loi</h3>
+            <p>A Global Business and Digital Arts<br>
+                student at the University of Waterloo.</p>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contact</h3>
+            <a href="mailto:k2loi@uwaterloo.ca">k2loi@uwaterloo.ca</a>
+            <a href="https://www.linkedin.com/in/krysten-loi/" target="_blank">linkedin.com/in/krysten-loi</a>
+        </div>
+    </div>
+</body>
+
+</html>

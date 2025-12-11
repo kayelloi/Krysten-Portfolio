@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+
+<head>
+    <!-- Made by Krysten Loi on November 25, 2025 -->
+    <title>Krysten's Portfolio - Home</title>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=TASA+Explorer:wght@400..800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /*-- Layout Container --*/
+        html {
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        body {
+            width: 1200px;
+            margin: 0 auto;
+            background-color: #060608;
+            font-family: "TASA Explorer", sans-serif;
+            font-size: 25px;
+        }
+
+        p,
+        ul,
+        li,
+        a {
+            color: #F3F4F7;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        h1 {
+            color: #F3F4F7;
+            font-family: "Momo Trust Display", sans-serif;
+            text-transform: uppercase;
+            font-size: 70px;
+        }
+
+        h2 {
+            color: #F3F4F7;
+            font-family: "TASA Explorer", sans-serif;
+            text-transform: uppercase;
+            font-size: 57px;
+            letter-spacing: 4px;
+
+        }
+
+        h3 {
+            color: #F3F4F7;
+            font-family: "Momo Trust Display", sans-serif;
+            text-transform: uppercase;
+        }
+
+        /*-- Logo --*/
+        .logo {
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        /*-- Navigation --*/
+        .spacer {
+            background-color: #060608;
+            width: 500px;
+        }
+
+        .nav {
+            font-optical-sizing: auto;
+            list-style: none;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            margin-top: 100px;
+            margin-left: 60px;
+            margin-right: 60px;
+            margin-bottom: 30px;
+        }
+
+        /* -- Navigation Text & Line Animation -- */
+        /*-- AI-ASSISTED CODE: Used Gemini to create a swipe hover animation in the navigation menu, that changes color from left-to-right on the text and line. --*/
+        .nav a {
+            position: relative;
+            padding-bottom: 5px;
+            /* spacing between text and line*/
+
+            /* Set the background to a gradient that includes Base colour (#F3F4F7), Hover colour (#FF6564) */
+            background-image: linear-gradient(to right,
+                    #FF6564 0%,
+                    #FF6564 50%,
+                    #F3F4F7 50%,
+                    #F3F4F7 100%);
+
+            /* Set the size to double the width, so both colors are side-by-side */
+            background-size: 200% 100%;
+            background-repeat: no-repeat;
+
+            /* Start position: show the base color (#F3F4F7) */
+            background-position: 100% 0;
+            /* this shifts the background so the #F3F4F7 section is visible */
+
+            /* Keep the text transparent */
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            /* Animate the background position instead of the size */
+            transition: background-position 0.3s ease-out;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            /* line starts invisible */
+            height: 1.5px;
+            background-color: #FF6564;
+            border-radius: 2px;
+
+            /* Animate the line width for the swipe effect */
+            transition: width 0.3s ease-out;
+        }
+
+        .nav a:hover {
+            /* When hovering, shift the background position to show the hover color (#FF6564) */
+            background-position: 0% 0;
+        }
+
+        .nav a:hover::after {
+            /* Expands the line underneath */
+            width: 100%;
+        }
+
+        /*-- AI-ASSISTED CODE: Used Gemini to colour the current page in the navigation menu. --*/
+        /* Active Page Highlight */
+        .nav a.active {
+            /* show the orange gradient */
+            background-position: 0% 0;
+        }
+        
+        .nav a.active::after {
+            /* show full underline */
+            width: 100%;
+        }
+
+        /*-- Projects --*/
+        .projects {
+            margin-left: 100px;
+            margin-top: 80px;
+            margin-bottom: 70px;
+        }
+
+        /* --- Description Header --- */
+        .description {
+            margin-top: 90px;
+            margin-bottom: 60px;
+            margin-left: 97px;
+            margin-right: 58px;
+            background-color: #111318;
+            padding: 20px;
+            padding-bottom: 15px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .description h2 {
+            color: #FF6564;
+            margin-top: 30px;
+            font-family: "TASA Explorer", sans-serif;
+            font-size: 45px;
+            line-height: 50px;
+        }
+
+        /*-- Project Assignments --*/
+        .assignments {
+            width: 1040px;
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 70px;
+            display: grid;
+            grid-template-columns: 55% 45%;
+            background-color: #111318;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .img {
+            width: 100%;
+            padding: 0px;
+        }
+
+        .prj-ass p {
+            margin-top: 65px;
+            margin-left: 75px;
+            margin-right: 50px;
+            padding-right: 20px;
+            font-size: 30px;
+            letter-spacing: 2px;
+            line-height: 40px;
+        }
+
+        .proj-btn {
+            margin-top: 285px;
+            margin-left: 810px;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 17px;
+            color: #FF6564;
+            background-color: #F3F4F7;
+            border-radius: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: absolute;
+        }
+
+        /*-- AI-ASSISTED CODE: Used Gemini to create a colour change animation when hovering over the buttons. --*/
+        .proj-btn:hover {
+            background-color: #F3F4F7;
+            color: #1E222D;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .spacer {
+            height: 10px;
+        }
+
+        /* --- Haebeat Covers --- */
+        .haebeat {
+            display: grid;
+            grid-template-columns: 49% 49%;
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 170px;
+            column-gap: 5%;
+            row-gap: 5%;
+        }
+
+        .haebeat-vid {
+            position: relative;
+        }
+
+        .haebeat-img {
+            width: 500px;
+            border-radius: 15px;
+            /* hover zoom animation */
+            transition: transform 0.4s ease;
+        }
+
+        /*-- AI-ASSISTED CODE: Used Gemini to create a hover effect that zooms the thumbnail, darkens it, and reveals a play button. --*/
+        /* Overlay that darkens on hover */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150%;
+            height: 100%;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0);
+            /* starts transparent */
+            transition: background 0.3s ease, transform 0.4s ease;
+            pointer-events: none;
+        }
+
+        /* When hovering over a specific thumbnail, it darkens the overlay */
+        .haebeat-vid:hover .overlay {
+            background: rgba(0, 0, 0, 0.45);
+            transform: scale(1.06);
+            /* same zoom as the image */
+            transform-origin: center center;
+        }
+
+        /* Thumbnail zooms on hover */
+        .haebeat-vid:hover .haebeat-img {
+            transform: scale(1.06);
+        }
+
+        /* Play button overlay */
+        .vid-btn {
+            padding: 10px 20px;
+            color: #FF6564;
+            background-color: #F3F4F7;
+            border-radius: 30px;
+            font-size: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: absolute;
+            /* center vertically */
+            top: 37%;
+            /* center horizontally */
+            left: 39%;
+            /* hides play button until hover */
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            /* orders the button to be above the overlay and thumbnail */
+            z-index: 3;
+        }
+
+        /* Show button on hover */
+        .haebeat-vid:hover .vid-btn {
+            opacity: 1;
+        }
+
+        /* --- Footer --- */
+        .footer-container {
+            margin: 0 auto;
+            padding: 50px 60px 50px;
+            background-color: #1E222D;
+            color: #F3F4F7;
+            border-radius: 20px 20px 0px 0px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-branding p {
+            font-size: 25px;
+            line-height: 45px;
+        }
+
+        .footer-contact h3 {
+            text-align: right;
+        }
+
+        .footer-contact a {
+            display: block;
+            font-size: 25px;
+            line-height: 45px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <p class="logo">Krysten Loi</p>
+        </li>
+        <div class="spacer"></div>
+        <li><a href="index.html">home</a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="design.html">design</a></li>
+        <li><a href="media.html" class="active">media</a></li>
+    </ul>
+
+    <div class="projects">
+        <h1>Media Projects</h1>
+    </div>
+
+    <div class="description" id="basketball-project">
+        <h2>Short Films</h2>
+    </div>
+
+    <div class="assignments">
+        <div class="prj-ass">
+            <img class="img" src="images/bball-doc-thumbnail.jpg"
+                alt="Second-Year Documentary, Waterloo Women's Basketball Team">
+        </div>
+        <div class="prj-ass">
+            <p class="documentary-text">A mini documentary capturing the drive of the Waterloo Women's Basketball team.
+            </p>
+        </div>
+        <a href="https://youtu.be/GWYpcC4r4VU" target="_blank" class="proj-btn">▶ Play</a>
+    </div>
+
+    <div class="assignments">
+        <div class="prj-ass">
+            <img class="img" src="images/ion-station-thumbnail.jpg"
+                alt="Second-Year Short Film, University of Waterloo Ion Station">
+        </div>
+        <div class="prj-ass">
+            <p class="documentary-text">A silent short uncovering moments at Waterloo's ION Station.</p>
+        </div>
+        <a href="https://youtu.be/t-wIBMwKbM4" target="_blank" class="proj-btn">▶ Play</a>
+    </div>
+
+    <div class="assignments">
+        <div class="prj-ass">
+            <img class="img" src="images/emotional-design-thumbnail.jpg" alt="First-Year Short Film, Emotional Design">
+        </div>
+        <div class="prj-ass">
+            <p class="documentary-text">A mood film capturing the feeling of eagerness.</p>
+        </div>
+        <a href="https://youtu.be/H9Cu8GtuP8Y" target="_blank" class="proj-btn">▶ Play</a>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="description">
+        <h2>Dance Cover Productions</h2>
+    </div>
+
+    <div class="haebeat">
+        <div class="haebeat-vid">
+            <img class="haebeat-img" src="images/iomt-thumbnail.jpg"
+                alt="Ice On My Teeth by ATEEZ, covered by Haebeat Dance Crew">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/gMr74A7ly4k" target="_blank" class="vid-btn">▶ Play</a>
+        </div>
+        <div class="haebeat-vid">
+            <img class="haebeat-img" src="images/daydream-thumbnail.jpg"
+                alt="Daydream by ENHYPEN, covered by Haebeat Dance Crew">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/S1Hfhp18kfE" target="_blank" class="vid-btn">▶ Play</a>
+        </div>
+        <div class="haebeat-vid">
+            <img class="haebeat-img" src="images/drip-thumbnail.jpg"
+                alt="Drip by BABYMONSTER, covered by Haebeat Dance Crew">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/wJKXVITvvuw" target="_blank" class="vid-btn">▶ Play</a>
+        </div>
+        <div class="haebeat-vid">
+            <img class="haebeat-img" src="images/bbb-thumbnail.jpg"
+                alt="Boom Boom Bass by RIIZE, covered by Haebeat Dance Crew">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/tWj5SwQMzxg" target="_blank" class="vid-btn">▶ Play</a>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <div class="footer-branding">
+            <h3>Krysten Loi</h3>
+            <p>A Global Business and Digital Arts<br>
+                student at the University of Waterloo.</p>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contact</h3>
+            <a href="mailto:k2loi@uwaterloo.ca">k2loi@uwaterloo.ca</a>
+            <a href="https://www.linkedin.com/in/krysten-loi/" target="_blank">linkedin.com/in/krysten-loi</a>
+        </div>
+    </div>
+</body>
+
+</html>
