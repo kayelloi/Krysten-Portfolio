@@ -11,11 +11,14 @@
         href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=TASA+Explorer:wght@400..800&display=swap"
         rel="stylesheet">
 
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
     <style>
         /*-- Layout Container --*/
         html {
             width: 1440px;
             margin: 0 auto;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -24,6 +27,13 @@
             background-color: #060608;
             font-family: "TASA Explorer", sans-serif;
             font-size: 25px;
+
+            cursor: url("images/cursor-default.png") 16 16, auto;
+        }
+
+        a:hover,
+        button:hover {
+            cursor: url("images/cursor-hover.png") 16 16, pointer;
         }
 
         p,
@@ -62,7 +72,7 @@
         /*-- Navigation --*/
         .spacer {
             background-color: #060608;
-            width: 500px;
+            width: 600px;
         }
 
         .nav {
@@ -73,9 +83,8 @@
             justify-content: space-between;
             align-items: center;
             font-size: 20px;
-            margin-top: 100px;
-            margin-left: 60px;
-            margin-right: 60px;
+            margin-top: 50px;
+            margin-right: 100px;
             margin-bottom: 30px;
         }
 
@@ -147,6 +156,10 @@
             width: 100%;
         }
 
+        #about {
+            scroll-margin-top: 100px;
+        }
+
         /*-- Hero Content --*/
         .hero {
             width: 1200px;
@@ -169,23 +182,31 @@
         }
 
         /*-- Bio --*/
-        .container {
-            width: 1000px;
-            margin: 0 auto;
-            margin-top: 100px;
-            font-size: 30px;
-            letter-spacing: 2px;
-            line-height: 40px;
+        .bio {
+            margin-left: 100px;
+            margin-top: 70px;
+            display: grid;
+            grid-template-columns: 60% 36%;
         }
 
-        .container p {
-            font-size: 35px;
+        .grid-item {
+            margin: 0px auto;
+        }
+
+        .grid-item p {
+            font-size: 30px;
+        }
+
+        .bio-img {
+            margin-top: 40px;
+            height: 350px;
+            border-radius: 20px;
         }
 
         /*-- Featuring... --*/
         .section-header {
             width: 1000px;
-            margin: 150px auto 40px auto;
+            margin: 110px auto 40px auto;
             border-top: 1.5px solid #F3F4F7;
             padding-top: 100px;
         }
@@ -197,14 +218,17 @@
             line-height: 40px;
         }
 
-        /*--- Basketball Documentary ---*/
+        /*-- Basketball Documentary --*/
         .project-card {
-            width: 1100px;
+            width: 1000px;
             margin: 100px auto;
+            margin-left: 0px;
+            margin-right: 0px;
             margin-bottom: 150px;
-            padding-left: 60px;
-            padding-right: 60px;
-            padding-top: 60px;
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-top: 100px;
+            padding-bottom: 40px;
             background-color: #111318;
             border-radius: 20px;
         }
@@ -217,21 +241,21 @@
 
         .project-details {
             display: grid;
-            grid-template-columns: 45% 50%;
+            grid-template-columns: 50% 45%;
             gap: 60px;
         }
 
         /* Left Side */
         .project-overview h3 {
             font-size: 30px;
+            margin-bottom: 0px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 0px;
         }
 
         .project-overview p {
             font-size: 20px;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             line-height: 1.7;
             color: #D0D3D5;
         }
@@ -296,11 +320,11 @@
 
         /* --- Skills & Tools --- */
         .skills-tools {
-            margin-bottom: 130px;
+            margin-bottom: 140px;
             border-top: #F3F4F7 solid 2px;
             border-bottom: #F3F4F7 solid 2px;
-            padding-top: 75px;
-            padding-bottom: 5px;
+            padding-top: 110px;
+            padding-bottom: 55px;
             text-align: center;
             letter-spacing: 2px;
         }
@@ -310,10 +334,83 @@
             text-transform: uppercase;
         }
 
-        /* --- Footer --- */
+        /* --- Experiences Ticker --- */
+        .ticker {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            border-bottom: #F3F4F7 solid 2px;
+        }
+
+        .ticker-track {
+            display: flex;
+            width: fit-content;
+            animation: scroll 20s linear infinite;
+        }
+
+        .ticker-track img {
+            height: 150px;
+            margin-right: 20px;
+            object-fit: contain;
+            border-radius: 20px;
+        }
+
+        .experiences h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .ticker-track p {
+            font-family: "Momo Trust Display", sans-serif;
+            font-size: 25px;
+            margin-top: 60px;
+            margin-right: 20px;
+            padding-bottom: 195px;
+        }
+
+        /* Animation */
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Fade In/Out */
+        .ticker::before,
+        .ticker::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .ticker::before {
+            left: 0;
+            background: linear-gradient(to right, #060608, transparent);
+        }
+
+        .ticker::after {
+            right: 0;
+            background: linear-gradient(to left, #060608, transparent);
+        }
+
+        /* Pause Ticker On Hover */
+        .ticker:hover .ticker-track {
+            animation-play-state: paused;
+        }
+
+        /*--- Footer ---*/
         .footer-container {
             margin: 0 auto;
-            margin-top: 150px;
+            margin-top: 180px;
             padding: 50px 60px 50px;
             background-color: #1E222D;
             color: #F3F4F7;
@@ -347,9 +444,8 @@
         </li>
         <div class="spacer"></div>
         <li><a href="index.html" class="active">home</a></li>
-        <li><a href="about.html">about</a></li>
-        <li><a href="design.html">design</a></li>
-        <li><a href="media.html">media</a></li>
+        <li><a href="#about">about</a></li>
+        <li><a href="showcase.html">showcase</a></li>
     </ul>
 
     <div class="hero">
@@ -360,12 +456,22 @@
         </div>
     </div>
 
-    <div class="container">
-        <h2>Hey there,</h2>
-        <p>I'm Krysten — a Global Business & Digital Arts student exploring digital design, branding & creative media.
-        </p>
-        <p>I bring ideas to life through video production, audio storytelling, graphic design, and bold branding that's
-            built to inspire and leave a lasting impact.</p>
+    <div class="bio">
+        <div class="grid-item">
+            <h2>Hey there,</h2>
+            <p>
+                I'm Krysten — a Global Business & Digital Arts student exploring digital design, branding & creative
+                media.
+            </p>
+            <p>
+                I bring ideas to life through video production, audio storytelling, graphic design, and bold branding
+                that's
+                built to inspire and leave a lasting impact.
+            </p>
+        </div>
+        <div class="grid-item">
+            <img class="bio-img" src="images/about-myself-img.jpg" alt="Self-Photograph, Krysten Loi">
+        </div>
     </div>
 
     <div class="section-header">
@@ -395,7 +501,8 @@
 
                 <h3>Process</h3>
                 <p>
-                    Filmed across multiple sessions at the University of Waterloo's Physical Activities Complex, combining interviews and live practice footage.
+                    Filmed across multiple sessions at the University of Waterloo's Physical Activities Complex,
+                    combining interviews and live practice footage.
                     Post-production involved assembling a rough cut, refining pacing, colour grading, and balancing
                     audio
                     to create a cohesive and immersive final piece.
@@ -406,7 +513,8 @@
             <div class="project-meta">
 
                 <div class="meta-header">
-                    <a href="https://youtu.be/GWYpcC4r4VU?si=0LFuMLHf5T6pXQEB" target="_blank" class="proj-btn">▶ Play</a>
+                    <a href="https://youtu.be/GWYpcC4r4VU?si=0LFuMLHf5T6pXQEB" target="_blank" class="proj-btn">▶
+                        Play</a>
                 </div>
 
                 <div class="meta-content">
@@ -439,7 +547,8 @@
     </div>
 
     <div class="project-card">
-        <img class="project-img" src="images/ion-station-thumbnail.jpg" alt="Second-Year Short Film, University of Waterloo Ion Station">
+        <img class="project-img" src="images/ion-station-thumbnail.jpg"
+            alt="Second-Year Short Film, University of Waterloo Ion Station">
 
         <div class="project-details">
 
@@ -474,7 +583,8 @@
             <div class="project-meta">
 
                 <div class="meta-header">
-                    <a href="https://youtu.be/t-wIBMwKbM4?si=T8V7GOB7OGAWwEtB" target="_blank" class="proj-btn">▶ Play</a>
+                    <a href="https://youtu.be/t-wIBMwKbM4?si=T8V7GOB7OGAWwEtB" target="_blank" class="proj-btn">▶
+                        Play</a>
                 </div>
 
                 <div class="meta-content">
@@ -515,7 +625,8 @@
             <div class="project-overview">
                 <h3>Overview</h3>
                 <p>
-                    This dance cover performance video showcases a high-energy performance brought to life through dynamic editing,
+                    This dance cover performance video showcases a high-energy performance brought to life through
+                    dynamic editing,
                     pacing, and visual storytelling.
                 </p>
 
@@ -528,8 +639,10 @@
 
                 <h3>Process</h3>
                 <p>
-                    The project involved directing performance shots, coordinating production, and leading post-production.
-                    Editing focused on timing cuts to music, refining transitions, and enhancing colour for visual cohesion.
+                    The project involved directing performance shots, coordinating production, and leading
+                    post-production.
+                    Editing focused on timing cuts to music, refining transitions, and enhancing colour for visual
+                    cohesion.
                     Final adjustments included pacing, visual effects, and overall polish to elevate the performance.
                 </p>
             </div>
@@ -538,7 +651,8 @@
             <div class="project-meta">
 
                 <div class="meta-header">
-                    <a href="https://youtu.be/y9CUoudzTvI?si=-pkVETJhylELFrm9" target="_blank" class="proj-btn">▶ Play</a>
+                    <a href="https://youtu.be/y9CUoudzTvI?si=-pkVETJhylELFrm9" target="_blank" class="proj-btn">▶
+                        Play</a>
                 </div>
 
                 <div class="meta-content">
@@ -570,16 +684,54 @@
         </div>
     </div>
 
-    <div class="skills-tools">
-        <h2>Skills</h2>
-        <div class="assets-text">
-            <p>Video Editing • Graphic Design • Branding</p>
-            <p>Digital Marketing • Javascript • HTML • CSS</p>
+    <div id="about">
+        <div class="skills-tools" id="skills">
+            <h2>Skills</h2>
+            <div class="assets-text">
+                <p>Video Editing • Graphic Design • Branding</p>
+                <p>Digital Marketing • Javascript • HTML • CSS</p>
+            </div>
+            <h2>Tools</h2>
+            <div class="assets-text">
+                <p>Figma • Illustrator • Photoshop • InDesign • After Effects</p>
+                <p>Premiere Pro • Audition • Da Vinci Resolve • Logic Pro</p>
+            </div>
         </div>
-        <h2>Tools</h2>
-        <div class="assets-text">
-            <p>Figma • Illustrator • Photoshop • InDesign • After Effects</p>
-            <p>Premiere Pro • Audition • Da Vinci Resolve • Logic Pro</p>
+
+        <div class="experiences" id="experiences">
+            <h2>Experiences</h2>
+
+            <div class="ticker">
+                <div class="ticker-track">
+                    <!-- FIRST SET -->
+                    <img src="images/microart-logo.jpg" alt="Microart Service Inc. Logo">
+                    <p> • </p>
+                    <img src="images/haebeat-logo.jpeg" alt="Haebeat Dance Crew Logo">
+                    <p> • </p>
+                    <img src="images/formula-nano-logo.jpeg" alt="Formula Nano Logo">
+                    <p> • </p>
+                    <img src="images/bss-yearbook-logo.png" alt="Bayview Yearbook Committee Logo">
+                    <p> • </p>
+                    <img src="images/bkdc-logo.png" alt="Bayview K-Pop Dance Club Logo">
+                    <p> • </p>
+                    <img src="images/jade-logo.jpg" alt="Jade Non-Profit Organization Logo">
+                    <p> • </p>
+
+                    <!-- DUPLICATE SET (for loop) -->
+                    <img src="images/microart-logo.jpg" alt="Microart Service Inc. Logo">
+                    <p> • </p>
+                    <img src="images/haebeat-logo.jpeg" alt="Haebeat Dance Crew Logo">
+                    <p> • </p>
+                    <img src="images/formula-nano-logo.jpeg" alt="Formula Nano Logo">
+                    <p> • </p>
+                    <img src="images/bss-yearbook-logo.png" alt="Bayview Yearbook Committee Logo">
+                    <p> • </p>
+                    <img src="images/bkdc-logo.png" alt="Bayview K-Pop Dance Club Logo">
+                    <p> • </p>
+                    <img src="images/jade-logo.jpg" alt="Jade Non-Profit Organization Logo">
+                    <p> • </p>
+                </div>
+            </div>
         </div>
     </div>
 

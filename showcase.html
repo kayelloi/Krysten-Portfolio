@@ -3,13 +3,15 @@
 
 <head>
     <!-- Made by Krysten Loi on November 25, 2025 -->
-    <title>Krysten's Portfolio - Home</title>
+    <title>Krysten's Portfolio - Showcase</title>
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=TASA+Explorer:wght@400..800&display=swap"
         rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
 
     <!-- p5.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
@@ -30,6 +32,13 @@
             background-color: #060608;
             font-family: "TASA Explorer", sans-serif;
             font-size: 25px;
+
+            cursor: url("images/cursor-default.png") 16 16, auto;
+        }
+
+        a:hover,
+        button:hover {
+            cursor: url("images/cursor-hover.png") 16 16, pointer;
         }
 
         p,
@@ -72,7 +81,7 @@
         /*-- Navigation --*/
         .spacer {
             background-color: #060608;
-            width: 500px;
+            width: 600px;
         }
 
         .nav {
@@ -83,9 +92,8 @@
             justify-content: space-between;
             align-items: center;
             font-size: 20px;
-            margin-top: 100px;
-            margin-left: 60px;
-            margin-right: 60px;
+            margin-top: 50px;
+            margin-right: 100px;
             margin-bottom: 30px;
         }
 
@@ -159,55 +167,18 @@
 
         /*-- Projects --*/
         .projects {
-            margin-left: 100px;
             margin-top: 80px;
             margin-bottom: 90px;
-        }
-
-        /* --- Project Description --- */
-        .big-description {
-            margin-bottom: 60px;
-            background-color: #111318;
-            padding: 60px;
-            padding-bottom: 25px;
-            border-radius: 20px;
-            font-size: 30px;
-            letter-spacing: 2px;
+            margin-left: 70px;
             text-align: center;
-        }
-
-        .big-description h2 {
-            margin: 0px;
-        }
-
-        .big-description h3 {
-            margin-top: 30px;
-            font-family: "TASA Explorer", sans-serif;
-            line-height: 50px;
-        }
-
-        .big-description p {
-            margin-top: 30px;
-            line-height: 50px;
-        }
-
-        .small-description {
-            display: flex;
-        }
-
-        .small-description h2 {
-            margin: 0px;
-        }
-
-        .small-description p {
-            margin-top: 30px;
-            line-height: 50px;
         }
 
         /* --- GBDA 101 Magazine --- */
         /*-- AI-ASSISTED CODE: Used Gemini to create a swipe through carousel that displays my magazing project--*/
         .carousel {
-            margin-bottom: 130px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 70px;
             overflow-x: auto;
             /* allow horizontal scrolling */
             scroll-snap-type: x mandatory;
@@ -221,7 +192,7 @@
         }
 
         .track img {
-            height: 514px;
+            height: 505px;
             width: auto;
             /* width adjusts proportionally */
             object-fit: cover;
@@ -231,53 +202,23 @@
             /* snap each image to the center */
         }
 
-        /* --- Solus Together --- */
-        .st-text {
-            margin-right: 60px;
-            margin-bottom: 130px;
-            background-color: #111318;
-            padding-top: 60px;
-            padding-bottom: 25px;
-            padding-left: 75px;
-            padding-right: 75px;
+        /* --- Poster Design - Working with AI --- */
+        .designs img {
+            width: 279px;
+            margin: 0 auto;
+            padding: 3px;
             border-radius: 20px;
-            font-size: 30px;
-            text-align: center;
-        }
-
-        .solus-together {
-            width: 370px;
-            height: 100%;
-            border-radius: 15px;
-        }
-
-        /* --- My World --- */
-        .mw-text {
-            margin-left: 60px;
-            margin-bottom: 130px;
-            background-color: #111318;
-            padding-top: 60px;
-            padding-bottom: 25px;
-            padding-left: 60px;
-            padding-right: 60px;
-            border-radius: 20px;
-            font-size: 30px;
-            text-align: center;
-        }
-
-        .my-world {
-            width: 342px;
-            height: 100%;
-            border-radius: 15px;
+            margin-bottom: 70px;
+            margin-left: 10px;
         }
 
         /* --- Javascript --- */
         .game {
-            width: 1100px;
+            width: 1050px;
             display: grid;
-            grid-template-columns: 54.2% 46.8%;
+            grid-template-columns: 55% 45%;
             column-gap: 4.7%;
-            margin-left: 20px;
+            margin-left: 45px;
             margin-right: 20px;
         }
 
@@ -286,30 +227,11 @@
         }
 
         .game-img {
-            height: 360px;
+            height: 350px;
             border-radius: 15px;
             /* hover zoom animation */
             transition: transform 0.4s ease;
-        }
-
-        .game-prj p {
-            margin-top: 20px;
-            margin-bottom: 80px;
-            background-color: #FF6564;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            border-radius: 100px;
-            text-align: center;
-        }
-
-        .etb-text {
-            margin-left: 105px;
-            margin-right: 105px;
-        }
-
-        .dp-text {
-            margin-left: 120px;
-            margin-right: 120px;
+            margin-bottom: 70px;
         }
 
         /*-- AI-ASSISTED CODE: Used Gemini to create a hover effect that zooms the thumbnail, darkens it, and reveals a play button. --*/
@@ -318,7 +240,6 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 150%;
             height: 100%;
             border-radius: 15px;
             background: rgba(0, 0, 0, 0);
@@ -330,14 +251,14 @@
         /* When hovering over a specific thumbnail, it darkens the overlay */
         .game-prj:hover .overlay {
             background: rgba(0, 0, 0, 0.45);
-            transform: scale(1.06);
+            transform: scale(1.05);
             /* same zoom as the image */
             transform-origin: center center;
         }
 
         /* Thumbnail zooms on hover */
         .game-prj:hover .game-img {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
 
         /* Play button overlay */
@@ -367,41 +288,81 @@
             opacity: 1;
         }
 
-        .animations {
-            width: 1100px;
+        /* --- Media Productions --- */
+        .productions {
             display: grid;
-            grid-template-columns: 34.5% 45.5%;
-            column-gap: 4.7%;
-            margin-bottom: 120px;
-            margin-left: 140px;
+            grid-template-columns: 50% 50%;
+            margin-left: 80px;
             margin-right: 100px;
+            margin-bottom: 340px;
+            column-gap: 5%;
+            row-gap: 5%;
         }
 
-        .animation-project {
-            text-align: center;
+        .productions-vid {
+            position: relative;
         }
 
-        .animation-img {
-            height: 500px;
+        .productions-img {
+            width: 500px;
             border-radius: 15px;
+            /* hover zoom animation */
+            transition: transform 0.4s ease;
         }
 
-        .animation-project p {
-            margin-top: 20px;
-            background-color: #FF6564;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            border-radius: 100px;
+        /*-- AI-ASSISTED CODE: Used Gemini to create a hover effect that zooms the thumbnail, darkens it, and reveals a play button. --*/
+        /* Overlay that darkens on hover */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150%;
+            height: 100%;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0);
+            /* starts transparent */
+            transition: background 0.3s ease, transform 0.4s ease;
+            pointer-events: none;
         }
 
-        .squid-game-text {
-            margin-left: 30px;
-            margin-right: 30px;
+        /* When hovering over a specific thumbnail, it darkens the overlay */
+        .productions-vid:hover .overlay {
+            background: rgba(0, 0, 0, 0.45);
+            transform: scale(1.05);
+            /* same zoom as the image */
+            transform-origin: center center;
         }
 
-        .space-text {
-            margin-left: 130px;
-            margin-right: 130px;
+        /* Thumbnail zooms on hover */
+        .productions-vid:hover .productions-img {
+            transform: scale(1.05);
+        }
+
+        /* Play button overlay */
+        .vid-btn {
+            padding: 10px 20px;
+            color: #FF6564;
+            background-color: #F3F4F7;
+            border-radius: 30px;
+            font-size: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: absolute;
+            /* center vertically */
+            top: 37%;
+            /* center horizontally */
+            left: 39%;
+            /* hides play button until hover */
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            /* orders the button to be above the overlay and thumbnail */
+            z-index: 3;
+        }
+
+        /* Show button on hover */
+        .productions-vid:hover .vid-btn {
+            opacity: 1;
         }
 
         /* --- Footer --- */
@@ -440,20 +401,12 @@
         </li>
         <div class="spacer"></div>
         <li><a href="index.html">home</a></li>
-        <li><a href="about.html">about</a></li>
-        <li><a href="design.html" class="active">design</a></li>
-        <li><a href="media.html">media</a></li>
+        <li><a href="index.html#about">about</a></li>
+        <li><a href="showcase.html" class="active">showcase</a></li>
     </ul>
 
     <div class="projects">
         <h1>Design Projects</h1>
-    </div>
-
-    <div class="big-description" id="magazine-project">
-        <h2>Showcase Magazine, 2024</h2>
-        <p>My design journey in GBDA 101.<br> Sometimes, we don't realize how much meaning is packed into something as
-            simple as a logo or icon.<br> It's more than just a design—it's a story waiting to be told.</p>
-        <p>Created using InDesign, Illustrator, & Photoshop</p>
     </div>
 
     <div class="carousel">
@@ -466,28 +419,15 @@
         </div>
     </div>
 
-    <div class="small-description">
-        <div class="st-text">
-            <h2>Solus together, 2021</h2>
-            <p>Expression of my life during COVID-19.<br> In the space between isolation and the grounding influence of
-                home, family, and culture, a steady sort of stability begins to grow—even in challenging times.</p>
-            <p>Created using Illustrator</p>
-        </div>
-        <img class="solus-together" src="images/solus-together.jpg" alt="Solus Together, 2021">
+    <div class="designs">
+        <img src="images/ai-poster-1.png" alt="Poster Design 1 - Working with AI, 2026">
+        <img src="images/ai-poster-2.png" alt="Poster Design 2 - Working with AI, 2026">
+        <img src="images/ai-poster-3.png" alt="Poster Design 3 - Working with AI, 2026">
+        <img src="images/ai-poster-4.png" alt="Poster Design 4 - Working with AI, 2026">
     </div>
 
-    <div class="small-description">
-        <img class="my-world" src="images/my-world.jpg" alt="My World, 2024">
-        <div class="mw-text">
-            <h2>My World, 2024</h2>
-            <p>Personal identity poster.<br> A blend of cityscape photography and glowing hand-drawn lines creates a
-                map-like world where imagination takes shape and structure, light, and fantasy intertwine.</p>
-            <p>Created using Illustrator</p>
-        </div>
-    </div>
-
-    <div class="big-description">
-        <h2>Games & Animations</h2>
+    <div class="projects">
+        <h1>Games & Animations</h1>
         <h3>Coded with Javascript</h3>
     </div>
 
@@ -502,22 +442,60 @@
             <div class="overlay"></div>
             <a href="https://youtu.be/QzayDdVs72Q" target="_blank" class="game-btn">▶ Play</a>
         </div>
-        <div class="game-prj">
-            <p class="etb-text">Eggscape the Belt, 2024</p>
-        </div>
-        <div class="game-prj">
-            <p class="dp-text">Dux Paint, 2025</p>
-        </div>
     </div>
 
-    <div class="animations">
-        <div class="animation-project">
-            <img class="animation-img" src="images/squid-game.jpg" alt="Squid Game Scene, 2025">
-            <p class="squid-game-text">Squid Game, 2025</p>
+    <div class="projects">
+        <h1>Media Productions</h1>
+    </div>
+
+    <div class="productions">
+        <div class="productions-vid">
+            <img class="productions-img" src="images/emotional-design-thumbnail.jpg"
+                alt="First-Year Short Film, Emotional Design">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/H9Cu8GtuP8Y" target="_blank" class="vid-btn">▶ Play</a>
         </div>
-        <div class="animation-project">
-            <img class="animation-img" src="images/space.jpg" alt="Space Scene, 2025">
-            <p class="space-text">Space, 2025</p>
+        <div class="productions-vid">
+            <img class="productions-img" src="images/iomt-thumbnail.jpg"
+                alt="Ice On My Teeth by ATEEZ, covered by Haebeat Dance Crew">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/gMr74A7ly4k" target="_blank" class="vid-btn">▶ Play</a>
+        </div>
+        <div class="productions-vid">
+            <img class="productions-img" src="images/spaghetti-thumbnail.jpg"
+                alt="Spaghetti by LE SSERAFIM, covered by Haebeat Dance Crew">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/X43jSi6kN4M" target="_blank" class="vid-btn">▶ Play</a>
+        </div>
+        <div class="productions-vid">
+            <img class="productions-img" src="images/daydream-thumbnail.jpg"
+                alt="Daydream by ENHYPEN, covered by Haebeat Dance Crew">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/S1Hfhp18kfE" target="_blank" class="vid-btn">▶ Play</a>
+        </div>
+        <div class="productions-vid">
+            <img class="productions-img" src="images/iconik-thumbnail.jpg"
+                alt="ICONIK by ZEROBASEONE, covered by Haebeat Dance Crew">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/8xrlVcsR0Dw" target="_blank" class="vid-btn">▶ Play</a>
+        </div>
+        <div class="productions-vid">
+            <img class="productions-img" src="images/bbb-thumbnail.jpg"
+                alt="Boom Boom Bass by RIIZE, covered by Haebeat Dance Crew">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/tWj5SwQMzxg" target="_blank" class="vid-btn">▶ Play</a>
+        </div>
+        <div class="productions-vid">
+            <img class="productions-img" src="images/drip-thumbnail.jpg"
+                alt="Drip by BABYMONSTER, covered by Haebeat Dance Crew">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/wJKXVITvvuw" target="_blank" class="vid-btn">▶ Play</a>
+        </div>
+        <div class="productions-vid">
+            <img class="productions-img" src="images/icsm-thumbnail.jpg"
+                alt="I Can't Stop Me by TWICE, covered by Bayview K-Pop Dance Club">
+            <div class="overlay"></div>
+            <a href="https://youtu.be/dKAJeNuGH8o" target="_blank" class="vid-btn">▶ Play</a>
         </div>
     </div>
 
