@@ -141,7 +141,7 @@
             /* show the orange gradient */
             background-position: 0% 0;
         }
-        
+
         .nav a.active::after {
             /* show full underline */
             width: 100%;
@@ -178,111 +178,120 @@
             line-height: 40px;
         }
 
-        /*-- Featured Work --*/
-        .featured {
-            width: 1100px;
-            margin: 50px auto;
-            margin-bottom: 65px;
-            display: grid;
-            grid-template-columns: 60% 40%;
-            background-color: #111318;
-            border-radius: 20px;
-            position: relative;
+        .container p {
+            font-size: 35px;
         }
 
-        .img-group {
-            display: flex;
-            gap: 30px;
+        /*-- Featuring... --*/
+        .section-header {
+            width: 1000px;
+            margin: 150px auto 40px auto;
+            border-top: 1.5px solid #F3F4F7;
+            padding-top: 100px;
         }
 
-        .design-img {
-            height: 350px;
-        }
-
-        .media-img {
-            height: 323px;
-        }
-
-        .grid-item {
-            padding: 70px;
-        }
-
-        .grid-item p {
-            border-left: #FF6564 solid 2px;
-            padding-left: 40px;
-            padding-bottom: 15px;
+        .section-header h2 {
+            font-family: "TASA Explorer", sans-serif;
+            font-size: 50px;
+            letter-spacing: 2px;
             line-height: 40px;
         }
 
-        .magazine-text {
-            margin-top: 10px;
+        /*--- Basketball Documentary ---*/
+        .project-card {
+            width: 1100px;
+            margin: 100px auto;
+            margin-bottom: 150px;
+            padding-left: 60px;
+            padding-right: 60px;
+            padding-top: 60px;
+            background-color: #111318;
+            border-radius: 20px;
         }
 
-        .documentary-text {
-            margin-top: 58px;
+        .project-img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 30px;
         }
 
-        .design-project-btn {
-            margin-top: 475px;
-            margin-left: 755px;
+        .project-details {
+            display: grid;
+            grid-template-columns: 45% 50%;
+            gap: 60px;
+        }
+
+        /* Left Side */
+        .project-overview h3 {
+            font-size: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0px;
+        }
+
+        .project-overview p {
+            font-size: 20px;
+            margin-bottom: 60px;
+            line-height: 1.7;
+            color: #D0D3D5;
+        }
+
+        /* Right Side */
+        .meta-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 45px;
+        }
+
+        .project-meta {
+            margin-top: 40px;
+        }
+
+        .meta-content {
+            border-top: 1.5px solid #FF6564;
+        }
+
+        .meta-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1.5px solid #FF6564;
+        }
+
+        .meta-label {
+            font-size: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #F3F4F7;
+        }
+
+        .meta-value {
+            font-size: 25px;
+            color: #D0D3D5;
+            text-align: right;
+            max-width: 60%;
+            line-height: 1.5;
+        }
+
+        .proj-btn {
+            display: inline-block;
+            margin-bottom: 25px;
+
             padding: 10px;
             padding-left: 20px;
             padding-right: 17px;
             color: #FF6564;
             background-color: #F3F4F7;
             border-radius: 30px;
-            font-size: 25px;
+            font-size: 30px;
             font-weight: bold;
             text-transform: uppercase;
-            position: absolute;
         }
 
-        .media-project-btn {
-            margin-top: 435px;
-            margin-left: 755px;
-            padding: 10px;
-            padding-left: 20px;
-            padding-right: 17px;
-            color: #FF6564;
-            background-color: #F3F4F7;
-            border-radius: 30px;
-            font-size: 25px;
-            font-weight: bold;
-            text-transform: uppercase;
-            position: absolute;
-
-        }
-
-        /*-- AI-ASSISTED CODE: Used Gemini to create a colour change animation when hovering over the buttons. --*/
-        .design-project-btn:hover,
-        .media-project-btn:hover {
+        .proj-btn:hover {
             background-color: #F3F4F7;
             color: #1E222D;
             transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .additional-btn:hover {
-            background-color: #1E222D;
-            color: #F3F4F7;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .additional-work {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-        }
-
-        .additional-btn {
-            margin-top: 70px;
-            margin-bottom: 115px;
-            padding: 15px 20px 15px 20px;
-            color: #F3F4F7;
-            background-color: #FF6564;
-            border-radius: 30px;
-            font-size: 27px;
-            font-weight: bold;
-            text-transform: uppercase;
         }
 
         /* --- Skills & Tools --- */
@@ -300,7 +309,6 @@
             margin-bottom: 90px;
             text-transform: uppercase;
         }
-
 
         /* --- Footer --- */
         .footer-container {
@@ -353,45 +361,212 @@
 
     <div class="container">
         <h2>Hey there,</h2>
-        <p>I'm Krysten — a Global Business & Digital Arts student<br>
-            exploring digital design, branding & creative media.</p>
-    </div>
-    <div class="container">
-        <h2>Check this out!</h2>
+        <p>I'm Krysten — a Global Business & Digital Arts student exploring digital design, branding & creative media.
+        </p>
         <p>I bring ideas to life through video production, audio storytelling, graphic design, and bold branding that's
             built to inspire and leave a lasting impact.</p>
     </div>
 
-    <div class="featured">
-        <div class="grid-item">
-            <div class="img-group">
-                <img class="design-img" src="images/mag-front-cover.jpg" alt="First-Year Design Magazine, Front Cover">
-                <img class="design-img" src="images/mag-back-cover.jpg" alt="First-Year Design Magazine, Back Cover">
+    <div class="section-header">
+        <h2><strong>Featuring...</strong></h2>
+    </div>
+
+    <div class="project-card">
+        <img class="project-img" src="images/bball-doc-thumbnail.jpg" alt="Waterloo Women's Basketball Documentary">
+
+        <div class="project-details">
+
+            <!-- LEFT SIDE -->
+            <div class="project-overview">
+                <h3>Overview</h3>
+                <p>
+                    <em>The Quiet Game</em> is a short documentary capturing the dedication and mindset of the Waterloo
+                    Women’s Basketball team.
+                    Rather than focusing solely on gameplay, the film highlights quieter moments — preparation, focus,
+                    and internal drive.
+                </p>
+
+                <h3>Goals</h3>
+                <p>
+                    Capture the emotional and mental side of athletes, build a cohesive narrative through interviews,
+                    and deliver a polished final cut with strong visual and audio consistency.
+                </p>
+
+                <h3>Process</h3>
+                <p>
+                    Filmed across multiple sessions at the University of Waterloo's Physical Activities Complex, combining interviews and live practice footage.
+                    Post-production involved assembling a rough cut, refining pacing, colour grading, and balancing
+                    audio
+                    to create a cohesive and immersive final piece.
+                </p>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="project-meta">
+
+                <div class="meta-header">
+                    <a href="https://youtu.be/GWYpcC4r4VU?si=0LFuMLHf5T6pXQEB" target="_blank" class="proj-btn">▶ Play</a>
+                </div>
+
+                <div class="meta-content">
+                    <div class="meta-row">
+                        <span class="meta-label"><strong>Role</strong></span>
+                        <span class="meta-value">Director, Editor</span>
+                    </div>
+
+                    <div class="meta-row">
+                        <span class="meta-label"><strong>Responsibilities</strong></span>
+                        <span class="meta-value">
+                            Filming, Editing, Colour Grading, Audio Mixing
+                        </span>
+                    </div>
+
+                    <div class="meta-row">
+                        <span class="meta-label"><strong>Tools</strong></span>
+                        <span class="meta-value">
+                            Premiere Pro, After Effects, Audition
+                        </span>
+                    </div>
+
+                    <div class="meta-row">
+                        <span class="meta-label"><strong>Timeline</strong></span>
+                        <span class="meta-value">3 weeks</span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="grid-item">
-            <p class="magazine-text">A print-style showcase of my first-year work that captures the projects, ideas, and
-                design choices that
-                shaped my early journey in GBDA.</p>
-        </div>
-        <a href="design.html#magazine-project" class="design-project-btn">View Project →</a>
     </div>
 
-    <div class="featured">
-        <div class="grid-item">
-            <img class="media-img" src="images/bball-doc-thumbnail.jpg"
-                alt="Second-Year Documentary, Waterloo Women's Basketball Team">
+    <div class="project-card">
+        <img class="project-img" src="images/ion-station-thumbnail.jpg" alt="Second-Year Short Film, University of Waterloo Ion Station">
+
+        <div class="project-details">
+
+            <!-- LEFT SIDE -->
+            <div class="project-overview">
+                <h3>Overview</h3>
+                <p>
+                    This short, silent film captures the daily rhythm of the University of Waterloo Station,
+                    a space defined by constant movement and quiet moments in between. The film explores how
+                    commuters, students, and transit intersect within a shared environment, revealing both
+                    energy and stillness throughout the day.
+                </p>
+
+                <h3>Goals</h3>
+                <p>
+                    Document the station as both a functional transit hub and a social space, while experimenting
+                    with pacing, composition, and visual storytelling. The project aimed to convey time-of-day
+                    transitions through lighting, movement, and shot variation.
+                </p>
+
+                <h3>Process</h3>
+                <p>
+                    Filmed across multiple time periods — morning, midday, afternoon, and evening — to capture
+                    changing light and activity levels. The cinematography combined static compositions with
+                    controlled camera movement, including pans and gimbal tracking shots, to balance structure
+                    and flow. Editing focused on rhythm, sequencing, and visual continuity to create a cohesive,
+                    observational narrative without dialogue.
+                </p>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="project-meta">
+
+                <div class="meta-header">
+                    <a href="https://youtu.be/t-wIBMwKbM4?si=T8V7GOB7OGAWwEtB" target="_blank" class="proj-btn">▶ Play</a>
+                </div>
+
+                <div class="meta-content">
+                    <div class="meta-row">
+                        <span class="meta-label"><strong>Role</strong></span>
+                        <span class="meta-value">Director, Cinematographer, Editor</span>
+                    </div>
+
+                    <div class="meta-row">
+                        <span class="meta-label"><strong>Responsibilities</strong></span>
+                        <span class="meta-value">
+                            Filming, Shot Composition, Camera Movement, Editing, Visual Sequencing, Colour Grading
+                        </span>
+                    </div>
+
+                    <div class="meta-row">
+                        <span class="meta-label"><strong>Tools</strong></span>
+                        <span class="meta-value">
+                            Canon D90, iPhone 17 Pro, Premiere Pro, Audition, DJI Osmo Gimbal
+                        </span>
+                    </div>
+
+                    <div class="meta-row">
+                        <span class="meta-label"><strong>Timeline</strong></span>
+                        <span class="meta-value">1 week</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="grid-item">
-            <p class="documentary-text">A mini documentary capturing the drive of the Waterloo Women's Basketball team.
-            </p>
-        </div>
-        <a href="media.html#basketball-project" class="media-project-btn">View Project →</a>
     </div>
 
-    <div class="additional-work">
-        <a href="design.html" class="additional-btn">Additional Designs</a>
-        <a href="media.html" class="additional-btn">Additional Media</a>
+    <div class="project-card">
+        <img class="project-img" src="images/go-thumbnail.jpg" alt="GO! by Cortis, covered by Haebeat Dance Crew">
+
+        <div class="project-details">
+
+            <!-- LEFT SIDE -->
+            <div class="project-overview">
+                <h3>Overview</h3>
+                <p>
+                    This dance cover performance video showcases a high-energy performance brought to life through dynamic editing,
+                    pacing, and visual storytelling.
+                </p>
+
+                <h3>Goals</h3>
+                <p>
+                    Create a visually engaging dance film that emphasizes musicality, movement, and energy.
+                    The edit was designed to sync tightly with the beat while maintaining clarity and impact
+                    throughout each sequence.
+                </p>
+
+                <h3>Process</h3>
+                <p>
+                    The project involved directing performance shots, coordinating production, and leading post-production.
+                    Editing focused on timing cuts to music, refining transitions, and enhancing colour for visual cohesion.
+                    Final adjustments included pacing, visual effects, and overall polish to elevate the performance.
+                </p>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="project-meta">
+
+                <div class="meta-header">
+                    <a href="https://youtu.be/y9CUoudzTvI?si=-pkVETJhylELFrm9" target="_blank" class="proj-btn">▶ Play</a>
+                </div>
+
+                <div class="meta-content">
+                    <div class="meta-row">
+                        <span class="meta-label"><strong>Role</strong></span>
+                        <span class="meta-value">Director, Editor, Producer</span>
+                    </div>
+
+                    <div class="meta-row">
+                        <span class="meta-label"><strong>Responsibilities</strong></span>
+                        <span class="meta-value">
+                            Video Editing, Shot Direction, Production Coordination, Colour Grading, Audio Mixing
+                        </span>
+                    </div>
+
+                    <div class="meta-row">
+                        <span class="meta-label"><strong>Tools</strong></span>
+                        <span class="meta-value">
+                            Da Vinci Resolve, Logic Pro
+                        </span>
+                    </div>
+
+                    <div class="meta-row">
+                        <span class="meta-label"><strong>Timeline</strong></span>
+                        <span class="meta-value">2 weeks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="skills-tools">
